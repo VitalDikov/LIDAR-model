@@ -12,12 +12,14 @@ public class Controller : MonoBehaviour // контроллер -- управл�
 
     public float R = (float)(2); // размер пылесоса
 
-    public char OutSideBrightness = 'd';
+    public char OutSideBrightness = 'd'; 
+
 
     void Start()
     {
         MyLaser = GetComponentInChildren<Laser>(); // доступ к лазеру и приемнику через иерархию
         MyTransmiter = GetComponentInChildren<Transmitter>();
+        image = gameObject.AddComponent<RawImage>();
         if (OutSideBrightness == 'd')
             MyLaser.minbright = 5; // Темная комната, Максимальная вдимость 12,47м
         else if (OutSideBrightness == 'l')
@@ -36,7 +38,7 @@ public class Controller : MonoBehaviour // контроллер -- управл�
             //RoomMap.PushLight(transform.position, Whall);
         }
         RoomMap.UpdateMap();
-        RoomMap.SaveMap(@"D:\!_ITMO\Физика\map.png");
+        RoomMap.SaveMap();
         // Вывести мини-карту
         image.texture = RoomMap.GetMap();
         //var www = new WWW(@"D:\!_ITMO\Физика\map.png");

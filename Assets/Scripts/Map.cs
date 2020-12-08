@@ -11,6 +11,9 @@ public class Map
     private const float PixelSize = (float)(0.1);
     private const int Border = 25;
     private const string Path = @"map.png";
+
+
+
     void Start()
     {
         Picture = new Texture2D(Border, Border);
