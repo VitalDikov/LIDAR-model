@@ -35,14 +35,16 @@ public class Controller : MonoBehaviour // контроллер -- управл�
         Vector2 Whall = GetWhall();
         if (Whall != Vector2.zero) {
             RoomMap.PushWhall(Whall);
-            //RoomMap.PushLight(transform.position, Whall);
         }
         RoomMap.UpdateMap();
-        RoomMap.SaveMap();
-        // Вывести мини-карту
+
         image.texture = RoomMap.GetMap();
-        //var www = new WWW(@"D:\!_ITMO\Физика\map.png");
-        //image.texture = www.texture;
+        (image.texture as Texture2D).Apply();
+
+        // Save
+        if (Input.GetKey("space")) {
+            RoomMap.SaveMap();
+        }
     }
 
 

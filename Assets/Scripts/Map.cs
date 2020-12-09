@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using UnityEngine.UI;
 
 public class Map
 {
@@ -8,11 +9,10 @@ public class Map
     private List<Vector2> PathList = new List<Vector2>();
     private List<KeyValuePair<Vector2, Vector2>> LightList = new List<KeyValuePair<Vector2, Vector2>>();
     public Texture2D Picture;
+    RawImage image;
     private const float PixelSize = (float)(0.1);
     private const int Border = 25;
     private const string Path = @"map.png";
-
-
 
     void Start()
     {
@@ -85,9 +85,6 @@ public class Map
 
             Vector2 tmp1 = ptPair.Key;
             Vector2 tmp2 = ptPair.Value;
-
-
-
 
             tmp1.x += deltaX + Border;
             tmp1.y += deltaY + Border;
